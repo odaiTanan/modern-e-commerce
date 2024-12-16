@@ -1,0 +1,59 @@
+@media (max-width: 575px) {
+  .continer {
+    width: 100%;
+  }
+  table {
+    width: 95%;
+    font-size: 13px;
+  }
+  td {
+    padding: 15px 8px !important;
+  }
+  .auth-form form {
+    width: 100% !important;
+  }
+}
+@media (max-width: 690px) {
+  .side-bar {
+    position: absolute !important;
+  }
+  .dashContent {
+    margin-left: 60px;
+    width: calc(100% - 64px) !important;
+  }
+}
+@media (min-width: 576px) {
+  .continer {
+    width: 540px;
+  }
+  .auth-form form {
+    width: 100% !important;
+  }
+}
+@media (min-width: 786px) {
+  .continer {
+    width: 750px;
+  }
+  .shadow-page {
+    display: none !important;
+  }
+  /*Span in side bar*/
+}
+@media (min-width: 992px) {
+  .continer {
+    width: 970px;
+  }
+  .auth-form img {
+    display: flex !important;
+  }
+}
+@media (min-width: 1200px) {
+  .continer {
+    width: 1170px;
+  }
+}
+@media (min-width: 1400px) {
+  .continer {
+    width: 1320px;
+  }
+}

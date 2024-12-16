@@ -1,0 +1,29 @@
+#dashboard {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+#dashboard #con {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+.dashContent {
+  display: flex;
+  margin-top: 90px;
+  justify-content: center;
+}
+.shadow-page {
+  position: absolute;
+  width: 100%;
+  /*70px is header height*/
+  height: calc(100% - 70px);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.111);
+  margin-top: 70px;
+}

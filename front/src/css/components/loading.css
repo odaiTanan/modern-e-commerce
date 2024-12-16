@@ -1,0 +1,57 @@
+#loading-con {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.161);
+  position: absolute;
+  z-index: 99;
+}
+.circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  position: relative;
+  overflow: hidden;
+}
+.circle2 {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: gray;
+}
+.circle2 div {
+  width: 25px;
+  height: 25px;
+  background-image: url("../../assets/shopping-cart.256x237.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 60px;
+
+  background-image: linear-gradient(to left, transparent, black, black, black);
+  z-index: 0;
+  animation-name: rotate;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+
+  transform-origin: top;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
