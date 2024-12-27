@@ -1,24 +1,32 @@
-import React from "react";
-import { useContext } from "react";
-import { SideBareCon } from "../../context/SideBarContext";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const SideBarLink = (props) => {
-  const sideBarCon = useContext(SideBareCon);
-  const open = sideBarCon.barState == 1;
-  return (
-    <NavLink
-      className={!open ? "center link" : " link"}
-      style={{ width: !open && "50px" }}
-      to={props.linkTo}
-    >
-      {" "}
-      <FontAwesomeIcon icon={props.icon} className="side-bar-icon" />
-      <span className="activ" style={{ display: open == 1 ? "flex" : "none" }}>
-        {props.name}
-      </span>
-    </NavLink>
-  );
-};
-
-export default SideBarLink;
+import {
+  faCartFlatbedSuitcase,
+  faUsers,
+  faUserPlus,
+  faFilePen,
+} from "@fortawesome/free-solid-svg-icons";
+export const navs = [
+  {
+    name: "Users",
+    path: "users",
+    icon: faUsers,
+    role: ["1995"],
+  },
+  {
+    name: "Products",
+    path: "products",
+    icon: faCartFlatbedSuitcase,
+    role: ["1995"],
+  },
+  {
+    name: "Add User",
+    path: "addUser",
+    icon: faUserPlus,
+    role: ["1995"],
+  },
+  {
+    name: "Writer",
+    path: "writer",
+    icon: faFilePen,
+    role: ["1995", "1996"],
+  },
+];

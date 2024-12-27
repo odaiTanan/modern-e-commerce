@@ -6,7 +6,8 @@ import { host, USER } from "../api/api";
 import { useState } from "react";
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
-const RequiredAuth = () => {
+import ERR403 from "./ERR403";
+const RequiredAuth = ({ allowedAccess }) => {
   const cookie = Cookie();
   const token = cookie.get("token");
   const nav = useNavigate();
@@ -25,7 +26,11 @@ const RequiredAuth = () => {
   }, []);
   return token ? (
     user !== "" ? (
-      <Outlet />
+      allowedAccess.includes(user.role) ? (
+        <Outlet />
+      ) : (
+        <ERR403 />
+      )
     ) : (
       <Loading />
     )

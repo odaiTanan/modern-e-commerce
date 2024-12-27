@@ -1,0 +1,14 @@
+.err403 {
+  width: 100%;
+}
+.err403 h1 {
+  color: red;
+  font-size: 30px;
+  margin-left: 30px;
+}
+.err403 p {
+  color: gray;
+  font-size: 25px;
+  margin-left: 30px;
+  margin-top: 20px;
+}

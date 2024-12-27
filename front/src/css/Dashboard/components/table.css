@@ -23,14 +23,15 @@ tr:nth-child(even) {
   background-color: rgba(0, 123, 255, 0.03);
   padding: 0;
   position: relative;
-  border-bottom: 1.5px solid #007bff;
+  border-bottom: 1.6px solid #007bff;
 }
 tr:nth-child(even)::after {
   content: "";
+
   left: 0;
   right: 0;
   position: absolute;
-  height: 1px;
+  height: 1.6px;
   background: #007bff;
   width: 100%;
 }

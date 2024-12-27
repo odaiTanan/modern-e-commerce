@@ -1,36 +1,29 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { GET_USER, UPDATE_USER } from "../../api/api";
+import { useNavigate } from "react-router-dom";
+import { ADD_USER } from "../../api/api";
 import { Axios } from "../../api/Axios";
 import Button from "../../components/Button";
 
-const UpdateUser = () => {
-  const id = useParams().id;
+const AddUser = () => {
   const nav = useNavigate();
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
+    name: "",
     email: "",
     password: "",
+    role: "",
   });
-  useEffect(() => {
-    const res = Axios.get(GET_USER + id).then((res) => {
-      setInputs({
-        name: res.data.name,
-        email: res.data.email,
-        role: res.data.role,
-      });
-    });
-  }, []);
+
   function handleInputs(e) {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   }
-
+  console.log(inputs);
   async function submitFunction(event) {
     event.preventDefault();
+    console.log(inputs);
     setLoading(true);
     try {
-      const res = await Axios.post(UPDATE_USER + id, inputs);
+      const res = await Axios.post(ADD_USER, inputs);
       setLoading(false);
       nav("/dashboard/users");
     } catch (error) {
@@ -40,7 +33,7 @@ const UpdateUser = () => {
   }
   return (
     <form className="dash-form" onSubmit={submitFunction}>
-      <h1>Update User</h1>{" "}
+      <h1>Add User</h1>{" "}
       <div className="dash-div">
         {" "}
         <input
@@ -52,7 +45,7 @@ const UpdateUser = () => {
           onChange={handleInputs}
         />
         <label htmlFor="email" className="inputLabel">
-          name
+          User Name
         </label>
       </div>
       <div className="dash-div">
@@ -68,12 +61,27 @@ const UpdateUser = () => {
         <label htmlFor="email" className="inputLabel">
           Email
         </label>{" "}
-      </div>{" "}
+      </div>
+      <div className="dash-div">
+        {" "}
+        <input
+          type="password"
+          placeholder=" "
+          name="password"
+          value={inputs.password}
+          required
+          onChange={handleInputs}
+          minLength={6}
+        />
+        <label htmlFor="email" className="inputLabel">
+          Password
+        </label>{" "}
+      </div>
       <div className="dash-div">
         {" "}
         <select
-          name="role"
           className="form"
+          name="role"
           value={inputs.role}
           onChange={handleInputs}
         >
@@ -85,9 +93,9 @@ const UpdateUser = () => {
           <option value={1996}>writer</option>
         </select>
       </div>
-      <Button type="save" loading={loading} />
+      <Button type="Add" loading={loading} />
     </form>
   );
 };
 
-export default UpdateUser;
+export default AddUser;

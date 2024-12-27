@@ -36,6 +36,8 @@ const Table = (props) => {
                 <td>{"admin"}</td>
               ) : data[head] == "2001" ? (
                 <td>{"user"}</td>
+              ) : data[head] == "1996" ? (
+                <td>{"writer"}</td>
               ) : (
                 ""
               )

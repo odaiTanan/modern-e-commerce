@@ -9,6 +9,8 @@ import "./css/Dashboard/components/bar.css";
 import "./css/Dashboard/components/table.css";
 import "./css/Dashboard/form.css";
 import "./css/root.css";
+import "./css/components/userTitle.css";
+import "./css/auth/errorPage.css";
 import "./css/dashboard/components/TableLoading.css";
 import { Routes, Route } from "react-router-dom";
 import Register from "./auth/Register";
@@ -21,6 +23,9 @@ import Dashboard from "./Dashboard/pages/dashboard";
 import Products from "./Dashboard/pages/Products";
 import RequiredAuth from "./auth/RequiredAuth";
 import UpdateUser from "./Dashboard/pages/UpdateUser";
+import AddUser from "./Dashboard/pages/AddUser";
+import ERR403 from "./auth/ERR403";
+import Writer from "./Dashboard/pages/Writer";
 function App() {
   return (
     <div style={{ position: "relative" }}>
@@ -31,11 +36,16 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/auth/google/callback" element={<GoogleCallback />} />
         {/*protected routes */}
-        <Route element={<RequiredAuth />}>
-          <Route path="/dashboard" element={<Dashboard />}>
+
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route element={<RequiredAuth allowedAccess={["1995"]} />}>
             <Route path="users" element={<Users />} />
             <Route path="users/update/:id" element={<UpdateUser />} />
             <Route path="products" element={<Products />} />
+            <Route path="addUser" element={<AddUser />} />
+          </Route>
+          <Route element={<RequiredAuth allowedAccess={["1995", "1996"]} />}>
+            <Route path="writer" element={<Writer />} />
           </Route>
         </Route>
       </Routes>

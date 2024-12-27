@@ -8,5 +8,16 @@
 }
 .dash-form input,
 .dash-div {
-  width: 350px !important;
+  width: 350px;
+}
+
+select.form {
+  font-size: 15px;
+  height: 50px;
+  outline: transparent;
+  border: 0px solid;
+  box-shadow: inset 0px 0px 5px 1px #000000ac;
+  border-bottom: 2px solid transparent;
+  width: 100%;
+  padding: 0 10px;
 }

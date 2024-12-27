@@ -10,6 +10,9 @@
   font-weight: 400;
   font-style: normal;
 }
+ul {
+  list-style: none;
+}
 .continer {
   display: flex;
   justify-content: center;
